@@ -1,0 +1,12 @@
+div#categorias ul li input{
+    margin-right: 10px;
+}
+
+div#categorias ul{
+    list-style: none;
+}
+
+button.btn {
+    background-color: rgb(255, 44, 44) !important;
+    color: white !important;
+}
