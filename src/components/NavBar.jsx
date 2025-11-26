@@ -1,8 +1,11 @@
 import logo from "../../icon.png"
 
 import { Link, Route } from "react-router-dom"
+import { useAuth } from "../context/AuthContext";
 
 const NavBar = ()=>{
+    const { user, logout } = useAuth();
+
     return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container row-gap-3">
@@ -33,11 +36,26 @@ const NavBar = ()=>{
         {/* Links */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto row-gap-2">
-            <li className="nav-item ms-lg-3">
-              <Link className="btn btn-outline-light d-flex align-items-center justify-content-center" to="/login">
-                <i className="bi bi-person-fill me-2"></i> Iniciar Sesión
-              </Link>
-            </li>
+            {
+              user ? (
+                <>
+                  <li className="nav-item ms-lg-3">
+                    <button onClick={logout} className="btn btn-outline-light d-flex align-items-center justify-content-center">
+                      <i className="bi bi-person-fill me-2"></i> Cerrar Sesión
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item ms-lg-3">
+                    <Link className="btn btn-outline-light d-flex align-items-center justify-content-center" to="/login">
+                      <i className="bi bi-person-fill me-2"></i> Iniciar Sesión
+                    </Link>
+                  </li>
+                </>
+              )
+            }
+
             {/* Icono del carrito */}
             <li className="nav-item ms-lg-3">
               <Link className="btn btn-outline-light d-flex align-items-center justify-content-center" to="/carrito">

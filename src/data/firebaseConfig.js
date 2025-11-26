@@ -1,5 +1,6 @@
 // Importar módulos necesarios
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 // Configuración que te da Firebase
@@ -15,6 +16,7 @@ const firebaseConfig = {
 // Inicializar la app
 const app = initializeApp(firebaseConfig);
 
-// Inicializar Firestore
+// Inicializar Firestore y Auth
+export const auth = getAuth(app);
 export const db = getFirestore(app);
 

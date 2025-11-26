@@ -1,4 +1,3 @@
-import imagenGrafica from "../img/grafica.png"
 
 const Producto = ({img, name, price, id, category})=>{
     return(
@@ -11,7 +10,7 @@ const Producto = ({img, name, price, id, category})=>{
                     style={{ height: "200px", objectFit: "contain" }}
                 />
                 <div className="card-body text-center">
-                    <h6 className="card-title" style={{fontSize:"15px"}}>{name}</h6>
+                    <h6 className="card-title h-25" style={{fontSize:"15px"}}>{name}</h6>
                     <p className="card-text" style={{fontSize:"20px"}}>{price} AR$</p>
                     <button className="btn btn-danger w-100">Agregar al carrito</button>
                 </div>
