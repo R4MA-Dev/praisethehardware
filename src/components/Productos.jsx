@@ -53,6 +53,7 @@ const Productos = ({filtros})=>{
                     name = {item.name}
                     category = {item.category}
                     key = {item.id}
+                    id = {item.id}
                      />
                 ))
             }
