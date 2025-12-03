@@ -53,7 +53,9 @@ const ProductoDetalle = () => {
                     <>
                         <button
                             className="btn btn-success mt-3"
-                            onClick={() => agregarAlCarrito(producto)}
+                            onClick={() => {agregarAlCarrito(producto)
+                              alert("Producto añadido al carrito")
+                            }}
                         >Añadir al carrito</button>
                     </>
                 ) : (

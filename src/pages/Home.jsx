@@ -4,6 +4,7 @@ import Header from "../components/Header.jsx"
 import NavBar from "../components/NavBar.jsx"
 import Categorias from "../components/Categorias.jsx"
 import Productos from "../components/Productos.jsx"
+import Footer from "../components/Footer.jsx"
 
 import "../css/Productos.css"
 
@@ -61,6 +62,7 @@ function Home(){
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

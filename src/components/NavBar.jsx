@@ -56,6 +56,20 @@ const NavBar = ()=>{
               )
             }
 
+            {
+              user && user.email === "xmercado656@gmail.com" ? (
+                                <>
+                  <li className="nav-item ms-lg-3">
+                    <Link className="btn btn-outline-light d-flex align-items-center justify-content-center" to="/panel">
+                      <i className="me-2 bi bi-gear-fill"></i> Admin Panel
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <></>
+              )
+            }
+
             {/* Icono del carrito */}
             <li className="nav-item ms-lg-3">
               <Link className="btn btn-outline-light d-flex align-items-center justify-content-center" to="/carrito">

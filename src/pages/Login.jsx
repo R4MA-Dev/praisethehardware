@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = ()=>{
-    const { login } = useAuth();
+    const { login, user } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -25,6 +25,16 @@ const Login = ()=>{
             }
         }
     };
+
+    if(user !== null){
+        return(
+            <div style={{height: "100dvh", backgroundColor : "#eae5e5"}}>
+                <NavBar/>
+                <h2 className="text-center mt-5">Ya has iniciado sesión</h2>
+            </div>
+        )
+    }
+
     return(
         <div style={{height: "100dvh", overflowY: "hidden", backgroundColor : "#eae5e5"}}>
             <NavBar/>
@@ -39,7 +49,7 @@ const Login = ()=>{
                     <input type="password" id="password" name="password" className="form-control" />
                 </div>
                 
-                <button type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-block mb-4 w-50">Iniciar Sesión</button>
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init className="btn border-white btn-block mb-4 w-50">Iniciar Sesión</button>
 
                 <div className="text-center">
                     <p>¿No estas registrado? <Link to="/register">Registrarse</Link></p>
