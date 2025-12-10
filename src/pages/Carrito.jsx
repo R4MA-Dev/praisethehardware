@@ -2,12 +2,19 @@ import { useCart } from "../context/CartContext";
 import { db } from "../data/firebaseConfig.js";
 import { addDoc, collection } from "firebase/firestore";
 import { useAuth } from "../context/AuthContext.jsx";
+import { useState } from "react";
 
 import NavBar from "../components/NavBar.jsx";
 
 const Carrito = () => {
   const { carrito, total, borrarProducto, quitarUnidad, agregarAlCarrito, vaciarCarrito } = useCart();
   const { user } = useAuth();
+  const [inputValue, setInputValue] = useState("")
+
+  const handleChange = (e)=>{
+    setInputValue(e.target.value);
+  }
+
 
   if (carrito.length === 0) {
     return (
@@ -17,14 +24,15 @@ const Carrito = () => {
     </div>)
   }
 
-
   const enviarPedido = async () => {
+
       if(user === null){
         alert("Debes iniciar sesión para finalizar la compra")
       }else{
         const order = {
           email: user.email,
           productos: carrito,
+          numero: inputValue,
           fecha: new Date().toISOString()
         };
 
@@ -85,6 +93,8 @@ const Carrito = () => {
             ))}
 
             <h3 className="mt-3">Total: ${total}</h3>
+            <label className="me-2" >Numero de telefono de contacto: </label>
+            <input value={inputValue} onChange={handleChange} type="tel" id="tel"/>
 
             <div className="mt-4 d-flex gap-3">
                 <button className="btn btn-success" onClick={enviarPedido}>

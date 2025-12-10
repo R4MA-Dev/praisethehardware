@@ -1,6 +1,10 @@
 import NavBar from "../components/NavBar.jsx"
-import { useAuth } from "../context/AuthContext.jsx";
+
 import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "../context/AuthContext.jsx";
+import { setPersistence, browserSessionPersistence } from "firebase/auth";
+import { auth } from "../data/firebaseConfig.js";
 
 
 const Register = ()=>{
@@ -14,6 +18,7 @@ const Register = ()=>{
         const password = e.target.password.value;
 
         try {
+            await setPersistence(auth, browserSessionPersistence)
             await register(email, password);
             alert("Usuario registrado!");
             navigate("/");} 

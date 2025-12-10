@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom"
+
 import NavBar from "../components/NavBar.jsx"
-import { useAuth } from "../context/AuthContext";
+import Footer from "../components/Footer.jsx";
+
 import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "../context/AuthContext";
+import { browserSessionPersistence, setPersistence } from "firebase/auth";
+import { auth } from "../data/firebaseConfig.js";
 
 const Login = ()=>{
     const { login, user } = useAuth();
@@ -14,6 +20,7 @@ const Login = ()=>{
         const password = e.target.password.value;
 
         try {
+            await setPersistence(auth, browserSessionPersistence)
             await login(email, password);
             alert("Sesión iniciada!");
             navigate("/");} 
@@ -55,6 +62,7 @@ const Login = ()=>{
                     <p>¿No estas registrado? <Link to="/register">Registrarse</Link></p>
                 </div>
             </form>
+            <Footer />
         </div>
     )
 }

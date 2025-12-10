@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../data/firebaseConfig.js";
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 import NavBar from "../components/NavBar.jsx";
 
@@ -12,6 +13,7 @@ const ProductoDetalle = () => {
   const [producto, setProducto] = useState(null);
   const { agregarAlCarrito } = useCart();
   const { user } = useAuth();
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -27,6 +29,14 @@ const ProductoDetalle = () => {
   }, []);
 
   if (!producto) return <p>Cargando producto...</p>;
+
+  const eliminarProducto = async ()=>{
+    const ref = doc(db, "productos", id)
+    deleteDoc(ref)
+
+    alert("El producto fue eliminado de la base de datos")
+    navigate("/")
+  }
 
   return (
     <div style={{height: "100dvh", backgroundColor : "#eae5e5"}}>
@@ -63,6 +73,19 @@ const ProductoDetalle = () => {
                         <span style={{color : "red"}}>Debes iniciar sesión para poder agregar productos al carrito</span>
                     </>
                 )
+            }
+            <br />
+            {
+              user && user.email === "xmercado656@gmail.com" ? (
+                                    <>
+                        <button
+                            className="btn btn-success mt-3"
+                            onClick={() => eliminarProducto()}
+                        >Eliminar Producto (Solo Admin)</button>
+                    </>
+              ) : (
+                <></>
+              )
             }  
             </div>
         </div>
