@@ -22,13 +22,24 @@ const Login = ()=>{
         try {
             await setPersistence(auth, browserSessionPersistence)
             await login(email, password);
-            alert("Sesión iniciada!");
+            swal({
+                title: '¡Éxito!',
+                text: 'Se inicio sesión correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
             navigate("/");} 
         catch (err) {
             console.log(err.message);
             
             if(err.message = "Firebase: Error (auth/invalid-credential)."){
-                alert("Los datos ingresados son incorrectos")
+                swal({
+                    title: '¡Error!',
+                    text: 'Los datos ingresados son incorrectos',
+                    icon: 'warning',
+                    dangerMode: true,
+                    confirmButtonText: 'Aceptar'
+                });
             }
         }
     };

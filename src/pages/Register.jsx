@@ -20,12 +20,23 @@ const Register = ()=>{
         try {
             await setPersistence(auth, browserSessionPersistence)
             await register(email, password);
-            alert("Usuario registrado!");
+            swal({
+                title: '¡Éxito!',
+                text: 'Se registro el usuario correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
             navigate("/");} 
         catch (err) {
             console.log(err.message);
             if (err.message = "Firebase: Error (auth/email-already-in-use)."){
-                alert("El correo ingresado ya esta registrado")
+                swal({
+                    title: '¡Error!',
+                    text: 'Este correo ya esta siendo utilizado',
+                    icon: 'warning',
+                    dangerMode: true,
+                    confirmButtonText: 'Aceptar'
+                });
             }
         }
     };

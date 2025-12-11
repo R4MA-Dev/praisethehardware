@@ -34,7 +34,12 @@ const ProductoDetalle = () => {
     const ref = doc(db, "productos", id)
     deleteDoc(ref)
 
-    alert("El producto fue eliminado de la base de datos")
+    swal({
+      title: '¡Éxito!',
+      text: 'Se elimino el producto de la base de datos',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
     navigate("/")
   }
 
@@ -64,7 +69,12 @@ const ProductoDetalle = () => {
                         <button
                             className="btn btn-success mt-3"
                             onClick={() => {agregarAlCarrito(producto)
-                              alert("Producto añadido al carrito")
+                                          swal({
+                                            title: '¡Éxito!',
+                                            text: 'Se añadio el producto al carrito',
+                                            icon: 'success',
+                                            confirmButtonText: 'Aceptar'
+                                          });
                             }}
                         >Añadir al carrito</button>
                     </>

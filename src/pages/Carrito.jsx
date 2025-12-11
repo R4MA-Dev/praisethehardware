@@ -6,6 +6,8 @@ import { useState } from "react";
 
 import NavBar from "../components/NavBar.jsx";
 
+import swal from "sweetalert";
+
 const Carrito = () => {
   const { carrito, total, borrarProducto, quitarUnidad, agregarAlCarrito, vaciarCarrito } = useCart();
   const { user } = useAuth();
@@ -27,19 +29,41 @@ const Carrito = () => {
   const enviarPedido = async () => {
 
       if(user === null){
-        alert("Debes iniciar sesión para finalizar la compra")
+        swal({
+            title: '¡Error!',
+            text: 'Debes iniciar sesión para poder realizar el pedido',
+            icon: 'warning',
+            dangerMode: true,
+            confirmButtonText: 'Aceptar'
+        });
       }else{
-        const order = {
-          email: user.email,
-          productos: carrito,
-          numero: inputValue,
-          fecha: new Date().toISOString()
-        };
+        if(inputValue.length < 10){
+            swal({
+                title: '¡Error!',
+                text: 'Debes añadir un número de telefono valido para realizar el pedido',
+                icon: 'warning',
+                dangerMode: true,
+                confirmButtonText: 'Aceptar'
+            });
+        }else{
+            const order = {
+            email: user.email,
+            productos: carrito,
+            numero: inputValue,
+            fecha: new Date().toISOString()
+            };
 
-        await addDoc(collection(db, "orders"), order);
+            await addDoc(collection(db, "orders"), order);
 
-        vaciarCarrito();
-        alert("Pedido enviado con éxito!");
+            vaciarCarrito();
+            swal({
+                title: '¡Éxito!',
+                text: 'Pedido realizado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
+        }
+
       }
 
   };
@@ -93,7 +117,7 @@ const Carrito = () => {
             ))}
 
             <h3 className="mt-3">Total: ${total}</h3>
-            <label className="me-2" >Numero de telefono de contacto: </label>
+            <label className="me-2" >Número de telefono de contacto: </label>
             <input value={inputValue} onChange={handleChange} type="tel" id="tel"/>
 
             <div className="mt-4 d-flex gap-3">

@@ -1,16 +1,62 @@
-# React + Vite
+# Praise The Hardware E-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+_Una tienda e-commerce de hardware para PC, una SPA (Single Page App) conectada a una DB de Firebase para mostrar los productos y detalles de estos. Posee un sistema de autenticación de usuario de Firebase y permisos de admin para cargar y borrar productos._
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Comenzando 🚀
 
-## React Compiler
+_Lo unico a tener en cuenta, es que tengas [Node.js](https://nodejs.org/es/) instalado en tu ordenador._
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+### Pre-requisitos 📋
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+_Para que el proyecto funcione, simplemente instala las dependencias del **package.json**._
+
+```
+npm install
+```
+
+### Como usarlo ⌨️
+
+_Para poder hostear el proyecto en tu ordenardor, debes abrir un dev-server._
+
+_Primero asegurate de tener este script en tu **package.json**._
+
+```
+"dev": "vite --host"
+```
+
+_Y finalmente ejecuta en la consola._
+
+```
+npm run dev
+```
+
+
+## Despliegue 📦
+
+_Para hacer deploy compila los archivos que irán en producción._
+
+```
+npm run build
+```
+
+_Una vez termine el proceso, te dejara una carpeta llamada **dist** y  esa carpeta es la que usara el hosting para el deploy._
+
+
+## Construido con 🛠️
+
+_Herramientas utilizadas para este proyecto._
+
+* [ReactJS](https://es.reactjs.org/) - Framework de JavaScript para el renderizado
+* [NPM](https://www.npmjs.com/) - Gestor de paquetes
+* [Vite JS](https://vite.dev/) - Paquete para crear nuestra app de ReactJS
+
+
+## Licencia 📄
+
+Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE.md](LICENSE.md) para detalles.
+
+
+---
+⌨️ con ❤️ por [R4MA-Dev](https://github.com/R4MA-Dev)
