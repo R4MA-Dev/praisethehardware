@@ -23,12 +23,20 @@ const ProductoDetalle = () => {
 
       if (snap.exists()) {
         setProducto({ id: snap.id, ...snap.data() });
+      }else{
+        navigate("/404", { replace: true })
       }
     }
     cargar();
   }, []);
 
-  if (!producto) return <p>Cargando producto...</p>;
+  if (!producto) return (
+    <div className="d-flex justify-content-center align-items-center" style={{height: "100dvh", backgroundColor : "#eae5e5"}}>
+      <div className="spinner-border text-danger" style={{width: "5rem", height: "5rem"}} role="status">
+        <span className="sr-only"></span>
+      </div>
+    </div>
+  );
 
   const eliminarProducto = async ()=>{
     const ref = doc(db, "productos", id)

@@ -30,7 +30,12 @@ const AdminPanel = ()=>{
 
          await addDoc(collection(db, "productos"), product);
 
-         alert("Producto cargado con exito!");
+         swal({
+            title: '¡Éxito!',
+            text: 'El producto se cargo correctamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+         });
          navigate("/");
         
     }

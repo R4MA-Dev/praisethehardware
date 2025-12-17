@@ -5,6 +5,7 @@ import Register from "./pages/Register.jsx"
 import Home from "./pages/Home.jsx"
 import ProductoDetalle from "./pages/ProductoDetalle.jsx"
 import AdminPanel from "./pages/AdminPanel.jsx"
+import PageNotFound from "./pages/404.jsx"
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="/carrito" element={<Carrito/>}/>
         <Route path="/producto/:id" element={<ProductoDetalle />} />
         <Route path="/panel" element={<AdminPanel />} />
+        <Route path="/404" element={<PageNotFound />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   )

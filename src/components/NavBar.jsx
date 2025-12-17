@@ -40,9 +40,9 @@ const NavBar = ()=>{
               user ? (
                 <>
                   <li className="nav-item ms-lg-3">
-                    <button onClick={logout} className="btn btn-outline-light d-flex align-items-center justify-content-center w-100">
+                    <Link onClick={logout} className="btn btn-outline-light d-flex align-items-center justify-content-center w-100">
                       <i className="bi bi-x-circle-fill me-2"></i> Cerrar Sesión
-                    </button>
+                    </Link>
                   </li>
                 </>
               ) : (
