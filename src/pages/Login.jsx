@@ -26,7 +26,8 @@ const Login = ()=>{
                 title: '¡Éxito!',
                 text: 'Se inicio sesión correctamente',
                 icon: 'success',
-                confirmButtonText: 'Aceptar'
+                buttons: false,
+                timer: 3000 
             });
             navigate("/");} 
         catch (err) {

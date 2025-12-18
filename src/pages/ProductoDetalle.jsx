@@ -46,7 +46,8 @@ const ProductoDetalle = () => {
       title: '¡Éxito!',
       text: 'Se elimino el producto de la base de datos',
       icon: 'success',
-      confirmButtonText: 'Aceptar'
+      buttons: false,
+      timer: 3000 
     });
     navigate("/")
   }
@@ -69,7 +70,7 @@ const ProductoDetalle = () => {
             {/* Info */}
             <div className="col-md-6">
             <h2>{producto.name}</h2>
-            <p className="text-muted">{producto.description}</p>
+            <p className="text-muted" style={{ whiteSpace: "pre-line" }}>{producto.description}</p>
             <h3 className="text-primary">${producto.price}</h3>
             {
                 user ? (

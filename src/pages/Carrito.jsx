@@ -60,7 +60,8 @@ const Carrito = () => {
                 title: '¡Éxito!',
                 text: 'Pedido realizado correctamente',
                 icon: 'success',
-                confirmButtonText: 'Aceptar'
+                buttons: false,
+                timer: 3000 
             });
         }
 

@@ -24,7 +24,8 @@ const Register = ()=>{
                 title: '¡Éxito!',
                 text: 'Se registro el usuario correctamente',
                 icon: 'success',
-                confirmButtonText: 'Aceptar'
+                buttons: false,
+                timer: 3000 
             });
             navigate("/");} 
         catch (err) {

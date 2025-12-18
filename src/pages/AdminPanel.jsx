@@ -71,7 +71,7 @@ const AdminPanel = ()=>{
 
                 <div data-mdb-input-init className="form-outline mb-4 w-75">
                     <label className="form-label" htmlFor="description">Descripción del producto</label><br></br>
-                    <textarea id="description" rows={5} cols={30} required></textarea>
+                    <textarea id="description" rows={5} cols={35} required></textarea>
                 </div>
                 
                 <button type="submit" data-mdb-button-init data-mdb-ripple-init className="btn border-white btn-block mb-4 w-50">Registrar Producto</button>
