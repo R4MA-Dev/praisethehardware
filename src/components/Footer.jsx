@@ -13,9 +13,9 @@ const Footer = ()=>{
                     style={{ height: "clamp(3rem, 4vw, 4rem)", width: "auto" }}
                 />
                 <ul className="nav col-md-4 justify-content-end"> 
-                    <li className="nav-item"><Link to="/register" className="nav-link px-2 text-body-secondary">Registrarse</Link></li> 
                     <li className="nav-item"><Link to="/login" className="nav-link px-2 text-body-secondary">Loguearse</Link></li> 
                     <li className="nav-item"><Link to="/carrito" className="nav-link px-2 text-body-secondary">Carrito</Link></li> 
+                    <li className="nav-item"><Link to="/contacto" className="nav-link px-2 text-body-secondary">Contacto</Link></li> 
                 </ul> 
             </footer> 
         </div>

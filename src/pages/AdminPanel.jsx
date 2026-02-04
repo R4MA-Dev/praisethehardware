@@ -34,7 +34,8 @@ const AdminPanel = ()=>{
             title: '¡Éxito!',
             text: 'El producto se cargo correctamente',
             icon: 'success',
-            confirmButtonText: 'Aceptar'
+            buttons: false,
+            timer: 3000 
          });
          navigate("/");
         

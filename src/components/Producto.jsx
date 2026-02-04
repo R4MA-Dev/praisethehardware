@@ -15,7 +15,7 @@ const Producto = ({img, name, price, id, category})=>{
                         <h6 className="card-title h-25" style={{fontSize:"15px"}}>{name}</h6>
                         <p className="card-text" style={{fontSize:"20px"}}>{price} AR$</p>
                     <Link to={`/producto/${id}`}>
-                        <button className="btn btn-danger w-100">Ver detalle</button>
+                        <button className="btn btn-danger w-100 product-link">Ver detalle</button>
                     </Link>
                     </div>
                 </div>

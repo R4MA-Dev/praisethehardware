@@ -82,7 +82,8 @@ const ProductoDetalle = () => {
                                             title: '¡Éxito!',
                                             text: 'Se añadio el producto al carrito',
                                             icon: 'success',
-                                            confirmButtonText: 'Aceptar'
+                                            buttons: false,
+                                            timer: 1500 
                                           });
                             }}
                         >Añadir al carrito</button>

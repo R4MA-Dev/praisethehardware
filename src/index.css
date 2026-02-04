@@ -61,6 +61,24 @@ div.navbarNav{
   gap: 50px !important;
 }
 
+a.link-contacto{
+  transition: scale 0.15s linear;
+}
+
+a.link-contacto:hover{
+  scale: 1.05;
+  transition: scale 0.15s linear;
+}
+
+button.product-link{
+  transition: scale 0.15s linear;
+}
+
+button.product-link:hover{
+  scale: 1.05;
+  transition: scale 0.15s linear;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
